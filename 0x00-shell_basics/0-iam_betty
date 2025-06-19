@@ -1,4 +1,2 @@
 #!/bin/bash
-chmod +x 0-iam_betty
-chmod +x 1-who_am_i
-chmod +x 2-groups
+su betty
