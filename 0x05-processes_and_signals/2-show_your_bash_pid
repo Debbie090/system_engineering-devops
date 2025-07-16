@@ -1,2 +1,5 @@
 #!/usr/bin/env bash
-ps -ejH | grep bash
+# This script displays only the lines containing the word "bash" from the process list
+# shellcheck disable=SC2009
+
+ps -ef | grep bash
