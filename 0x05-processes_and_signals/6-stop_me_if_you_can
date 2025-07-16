@@ -1,2 +1,12 @@
 #!/usr/bin/env bash
-pkill -f 4-to_infinity_and_beyond
+# This script stops the 4-to_infinity_and_beyond process without using kill or killall
+
+pid=$(pgrep -f "4-to_infinity_and_beyond")
+if [ -n "$pid" ]; then
+  echo "attach $pid" > /tmp/gdb_cmd
+  echo "call exit(0)" >> /tmp/gdb_cmd
+  echo "detach" >> /tmp/gdb_cmd
+  echo "quit" >> /tmp/gdb_cmd
+  gdb -batch -x /tmp/gdb_cmd
+  rm /tmp/gdb_cmd
+fi

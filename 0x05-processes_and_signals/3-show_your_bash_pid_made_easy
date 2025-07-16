@@ -1,2 +1,11 @@
 #!/usr/bin/env bash
-pgrep -l bash
+# This script displays the PID and process name of all processes containing "bash"
+
+for pid in $(ls /proc | grep -E '^[0-9]+$'); do
+  if [ -r "/proc/$pid/comm" ]; then
+    name=$(cat /proc/$pid/comm)
+    if [[ "$name" == *bash* ]]; then
+      echo "$pid $name"
+    fi
+  fi
+done
