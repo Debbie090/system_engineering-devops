@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Displays all processes (all users, even those without a TTY) 
-# in a human-readable, hierarchical format with “STARTED” (HH:MM:SS).
+# Displays every process (all users, even those without a TTY),
+# in a human‐readable, indented tree, with a seconds‐precision STARTED column.
 
-ps axo user,stime,command --forest \
-  | sed '1s/^USER *STIME/USER       STARTED/' 
+ps axo user,pid,pcpu,pmem,vsz,rss,tty,stat,stime,time,command --forest \
+  | sed '1s/STIME/STARTED/'
   
