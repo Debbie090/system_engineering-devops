@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# Displays all running processes in a hierarchical, user-readable format including those without TTY
+# Displays all running processes for all users, including those without a TTY, in a readable hierarchy format
 
-ps -eo user,pid,pcpu,pmem,vsz,rss,tty,stat,lstart,time,command --sort=start_time | \
-awk 'NR==1 {sub("START", "STARTED"); print} NR>1 {print}' | \
-head -50
+ps -eo user,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,command --sort=start_time | \
+awk 'NR==1 {$6="STARTED"; print $0} NR>1 {print $0}'
