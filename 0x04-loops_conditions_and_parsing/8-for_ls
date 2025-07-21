@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-# This script lists non-hidden files and displays the part of each filename after the first dash
+# Lists each non-hidden file/dir; if a name has “–”, show only what follows that first dash
 
 for file in *; do
-  # Skip if the file doesn't contain a dash
   if [[ "$file" == *-* ]]; then
     echo "${file#*-}"
+  else
+    echo "$file"
   fi
 done
