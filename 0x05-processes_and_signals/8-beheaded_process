@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script forcefully kills the 7-highlander process using SIGKILL
 
-pid=$(pgrep -f "7-highlander")
-if [ -n "$pid" ]; then
+pid=$(pgrep -o -f "7-highlander")  # -o ensures you get the oldest (original) match only
+if [ -n "$pid" ] && [[ "$pid" =~ ^[0-9]+$ ]]; then
   kill -9 "$pid"
 fi
