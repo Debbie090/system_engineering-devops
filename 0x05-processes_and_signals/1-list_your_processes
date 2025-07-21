@@ -2,4 +2,4 @@
 # Displays all processes (all users, even those without a TTY)
 # in a human‐readable, indented tree with a seconds‐precision STARTED column.
 
-ps axo user,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,command --forest
+ps auxf user,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,command --forest
