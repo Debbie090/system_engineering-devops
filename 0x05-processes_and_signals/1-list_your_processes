@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Displays all processes (all users, even those without a TTY)
-# in a readable tree format with STARTED column and full process info
+# in a human-readable tree with USER, STARTED (HH:MM:SS), and COMMAND.
 
-ps axo user,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,command --forest
+ps axo user,pid,pcpu,pmem,vsz,rss,tty,stat,stime,time,command --forest \
+  | sed '1s/STIME/STARTED/'
+  
