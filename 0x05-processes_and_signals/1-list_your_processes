@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Displays all processes (from all users, even without a TTY)
-# in a readable process tree with a STARTED column in HH:MM:SS format.
+# Displays all processes (all users, even those without a TTY)
+# in a readable tree format with STARTED column and full process info
 
 ps axo user,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,command --forest
